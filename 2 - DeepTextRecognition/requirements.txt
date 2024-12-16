@@ -1,0 +1,9 @@
+torch
+torchvision
+pillow
+nltk
+natsort
+opencv-python-headless
+tensorflow
+fire
+lmdb

@@ -12,6 +12,9 @@
 *.eps
 *.pdf
 
+### Include Requirements
+!requirements.txt
+
 ### Linux ###
 *~
 
