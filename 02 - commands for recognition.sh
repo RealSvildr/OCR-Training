@@ -51,19 +51,19 @@ python3 create_lmdb_dataset.py ./out/ ./out/labels.txt ./lmdb_output
 ### It's advisible to use different validation data
 CUDA_VISIBLE_DEVICES=0 CUDA_LAUNCH_BLOCKING=1 python3 train.py --train_data ./lmdb_output --valid_data ./lmdb_output --select_data / --batch_ratio 1 \
     --Transformation None --FeatureExtraction VGG --SequenceModeling BiLSTM --Prediction CTC \
-    --character "01234567890-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+    --character "0123456789-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
     --imgH 128 --imgW 200 --num_iter 10000 --valInterval 1000 --data_filtering_off
 
 ## TEST
 CUDA_VISIBLE_DEVICES=0 CUDA_LAUNCH_BLOCKING=1 python3 train.py --train_data ./lmdb_output --valid_data ./lmdb_output --select_data / --batch_ratio 1 \
     --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction Attn \
-    --character "01234567890-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+    --character "0123456789-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
     --imgH 128 --num_iter 10000 --valInterval 1000 --data_filtering_off
 
 ## TEST 2
 CUDA_VISIBLE_DEVICES=0 CUDA_LAUNCH_BLOCKING=1 python3 train.py --train_data ./lmdb_output --valid_data ./lmdb_output --select_data / --batch_ratio 1 \
     --Transformation TPS --FeatureExtraction ResNet --SequenceModeling BiLSTM --Prediction CTC \
-    --character "01234567890-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+    --character "0123456789-=+\!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" \
     --imgH 128 --num_iter 10000 --valInterval 1000 --data_filtering_off
 
 
