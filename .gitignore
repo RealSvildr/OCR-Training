@@ -1,0 +1,5 @@
+1 - TextRecognitionDataGenerator/out/
+1 - TextRecognitionDataGenerator/out2/
+1 - TextRecognitionDataGenerator/out3/
+2 - DeepTextRecognition/lmdb_output/
+2 - DeepTextRecognition/saved_models/
