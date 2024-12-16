@@ -197,8 +197,8 @@ def train(opt):
                 loss_log = f'[{iteration+1}/{opt.num_iter}] Train loss: {loss_avg.val():0.5f}, Valid loss: {valid_loss:0.5f}'
                 loss_avg.reset()
 
-                time_log  = f'{"PR Total Time":17s}: {get_time(projection_time)}, {"Elapsed Time":17s}: {get_time(elapsed_time)}\n'
-                time_log += f'{"PR Remaning Time":17s}: {get_time(remain_time)}, {"Time Cicle":17s}: {(time_cicle):0.3f}s/image\n'
+                time_log  = f'{"Total Time":17s}: {get_time(projection_time)}, {"Elapsed Time":17s}: {get_time(elapsed_time)}\n'
+                time_log += f'{"Remaning Time":17s}: {get_time(remain_time)}, {"Time Cicle":17s}: {(time_cicle):0.3f} img/sec\n'
 
                 current_model_log = f'{"Current_accuracy":17s}: {current_accuracy:0.3f}, {"Current_norm_ED":17s}: {current_norm_ED:0.2f}'
 
@@ -261,13 +261,13 @@ def get_time(time):
         t += '00:'
         
     if time >= 1:
-        t += f'{(math.floor(time/1)):02.0f} '
+        t += f'{(math.floor(time/1)):02.0f}'
         time = time % 1
     else:
-        t += '00 '
+        t += '00'
         
     if time > 0:
-        t += f'{math.floor(time * 1000)}'
+        t += f' {math.floor(time * 10000)}'
         
     return t
 
@@ -334,7 +334,6 @@ if __name__ == '__main__':
     os.makedirs(f'./saved_models/{opt.exp_name}', exist_ok=True)
 
     """ vocab / character number configuration """
-    opt.character = "01234567890-=+!@#$%&*()[]'\"\,.<>?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     if opt.sensitive:
         # opt.character += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         opt.character = string.printable[:-6]  # same with ASTER setting (use 94 char).
